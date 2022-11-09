@@ -1,0 +1,41 @@
+We have to check every file in the current directory and display the name that has Read, Write and Execute permission,
+To traverse through all files, we will use for loop
+
+for file in *
+Here, we are using * which represent all files in current working directory and 
+we are storing the current file name on file variable.
+
+Now we will check whether the chosen file is actually a file or not using if statement
+If it is a file, then we will check whether it has Read, Write and Execute permission,
+We will use an if statement to check all permissions.
+If the file has all permissions then we will print the file name to the console.
+Close the if statement
+If it is not a file, then we will close the if statement and move to the next file.
+
+Before moving forward we will see what these operators do :
+
+-f  $file -> returns true if file exists.
+-r $file -> returns true if file has Read permission
+-w $file -> returns true if file ha write permission.
+-x $file -> returns true if file has Executed permission.
+-a -> it is used for checking multiple conditions, same as && operator.
+
+
+Program 5. Write a shell script to display file permissions along with their names.
+
+for file in *		# * which represent all files in current working directory
+do
+	if [ -f $file ]	# -f  $file -> returns true if file exists.
+	then
+		echo "\"$file\" is regular file: "
+		ls -l $file	# long list of files , here "file" is an argument
+		echo		# new line 
+
+	else if [ -d $file ]
+	then
+		echo "\"$file\" is directory file: "
+		ls -l $file
+		echo
+	fi
+	fi
+done

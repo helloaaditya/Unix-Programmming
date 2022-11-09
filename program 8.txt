@@ -1,0 +1,29 @@
+%D 	– Display date as mm/dd/yy
+%Y 	– Year (e.g., 2020)
+%m 	– Month (01-12)
+%B 	– Long month name (e.g., November)
+%b 	– Short month name (e.g., Nov)
+%d 	– Day of month (e.g., 01)
+%j 	– Day of year (001-366)
+%u 	– Day of week (1-7)
+%A	 – Full weekday name (e.g., Friday)
+%a 	– Short weekday name (e.g., Fri)
+%H	 – Hour (00-23)
+%I 	– Hour (01-12)
+%M 	– Minute (00-59)
+%S 	– Second (00-60)
+
+# Program 8. Write a shell script that prints out date information in this order:
+TIME, DAY OF WEEK, DAY NUMBER, MONTH, YEAR Like 20:10:42 Mon 29 Jun2015.
+
+echo "Time is $(date +"%T")"
+echo "Day of week is $(date +"%A")"
+echo "Day of week is $(date +"%a")"
+echo "Day Number is $(date +"%d")"
+echo "Name of Month is $(date +"%h")"
+echo "Month Number is $(date +"%m")"
+echo "Year (4 digit) is $(date +"%Y")"
+echo "Year (2 digit) is $(date +"%y")"
+
+echo "OUTPUT"
+echo "$(date +"%T %a %d %h %Y")"

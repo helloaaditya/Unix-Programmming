@@ -1,0 +1,325 @@
+1. Practice the commands encountered in the syllabus.
+
+# The change directory (cd) command is built into the system shell and changes the current working directory.
+Syntax:  
+	$ cd [directory]
+
+To move inside a subdirectory : to move inside a subdirectory in linux we use 
+	$ cd [directory_name] 
+
+cd /
+	this command is used to change directory to the root directory, The root directory is the first directory in your filesystem hierarchy. 
+
+cd dir_1/dir_2/dir_3
+	This command is used to move inside a directory from a directory 
+
+cd ~ 
+	this command is used to change directory to the home directory. 
+
+cd .. 
+	this command is used to move to the parent directory of current directory, or the directory one level up from the current directory. “..” represents parent directory. 
+
+NOTE: Root directory which is referred to as / (a slash) is the topmost level of the system drive while Home directory which is /Users/<short username> (also referred to as ~) comes under the root directory.
+The root, root directory, or root folder is the highest level in a directory hierarchy and includes all other directories under it.
+The home, a storage folder that contains the user's personal files.
+
+# pwd stands for Print Working Directory. It prints the path of the working directory, starting from the root.
+	pwd is shell built-in command(pwd) or an actual binary(/bin/pwd).
+	$PWD is an environment variable which stores the path of the current directory.
+
+# ls–Lists the names of files in a particular Unix directory.
+
+Example: ls
+	Result: Lists the names of files in your default directory, in alphabetical order.
+
+Example: ls -l
+	Result: Gives a "long listing" of the files in your directory. In addition to the file name, the long listing shows protection information, file owner, number of characters in file, and the date 		and time of the last change to the file.
+
+Example: ls -a
+	Result: Causes all your files to be listed, including those files that begin with a period (i.e., hidden files).
+
+	For more information, type man ls at the Unix system prompt.
+
+# The standard Unix command who displays a list of users who are currently logged into the computer. 
+
+# whoami: It is basically the concatenation of the strings “who”,”am”,”i” as whoami. It displays the username of the current user when this command is invoked. 
+
+# man command in Linux is used to display the user manual of any command that we can run on the terminal.
+
+# ps command is used to list the currently running processes and their PIDs along with some other information depends on different options. 
+	By default, for each process that is associated with the user's terminal, ps displays the process ID (PID), TTY, processor time used (TIME), and name of the command (COMM).
+	PID – the unique process ID 
+	TTY – terminal type that the user is logged into 
+	TIME – amount of CPU in minutes and seconds that the process has been running 
+	CMD – name of the command that launched the process. 
+
+	Note – Sometimes when we execute ps command, it shows TIME as 00:00:00. It is nothing but the total accumulated CPU utilization time for any process and 00:00:00 indicates no CPU time has been 		given by the kernel till now. In above example we found that, for bash no CPU time has been given. This is because bash is just a parent process for different processes which needs bash for their 		execution and bash itself is not utilizing any CPU time till now. 
+
+# cal command is a calendar command in Linux which is used to see the calendar of a specific month or a whole year. 
+
+Syntax: 
+
+	cal [ [ month ] year]
+
+	The rectangular bracket means it is optional, so if used without an option, it will display a calendar of the current month and year.  
+
+	cal : Shows current month calendar on the terminal with the current date highlighted. 
+	cal -y : Shows the calendar of the complete current year with the current date highlighted.
+	cal 08 2000 : Shows calendar of selected month and year. 
+	cal -3 : Shows calendar of previous, current and next month.
+
+# date command is used to display the system date and time. 
+	date command is also used to set date and time of the system. By default the date command displays the date in the time zone on which unix/linux operating system is configured.You must be the 	super-user (root) to change the date and time. 
+
+Syntax: 
+	date [OPTION]... [+FORMAT]
+
+	date (no option) : With no options, the date command displays the current date and time, including the abbreviated day name, abbreviated month name, day of the month, the time separated by colons, 		the time zone name, and the year. 
+	-u Option: Displays the time in GMT(Greenwich Mean Time)/UTC(Coordinated Universal Time )time zone. 
+	$date --date="2 month ago"
+	$date --date="2 year ago"
+	$date --date="yesterday"
+	$date --date="next tue"
+
+List of Format specifiers used with date command: 
+	%D: Display date as mm/dd/yy.       
+	%d: Display the day of the month (01 to 31).       
+	%a: Displays the abbreviated name for weekdays (Sun to Sat).
+	%A: Displays full weekdays (Sunday to Saturday).
+	%h: Displays abbreviated month name (Jan to Dec).
+	%b: Displays abbreviated month name (Jan to Dec).
+	%B: Displays full month name(January to December).
+	%m: Displays the month of year (01 to 12).
+	%y: Displays last two digits of the year(00 to 99).
+	%Y: Display four-digit year. 
+	%T: Display the time in 24 hour format as HH:MM:SS.
+	%H: Display the hour.
+	%M: Display the minute.
+	%S: Display the seconds.
+
+Syntax: 
+	$date +%[format-option]
+
+# echo command in linux is used to display line of text/string that are passed as an argument . 
+	This is a built in command that is mostly used in shell scripts and batch files to output status text to the screen or a file. 
+
+Syntax :
+	echo [option] [string]
+
+Displaying a text/string : Syntax :
+	echo [string]
+
+	1. \b : it removes all the spaces in between the text 
+	Example :
+		echo -e "Unix \bfor \bProgramming"
+
+	2. \c : suppress trailing new line with backspace interpreter ‘-e‘ to continue without emitting new line. 
+	Example :
+		echo -e "Unix \cProgramming"
+	
+	3. \n : this option creates new line from where it is used. 
+	Example :
+ 		echo -e "Unix \nShell \nProgramming"
+	
+	4. \t : this option is used to create horizontal tab spaces. 
+	Example :
+		echo -e "Unix \tShell \tProgramming"
+
+	8. echo * : this command will print all files/folders, similar to ls command . 
+	Example :
+		echo *
+
+# “printf” command in Linux is used to display the given string, number or any other format specifier on the terminal window. 
+	It works the same way as “printf” works in programming languages like C.
+
+Syntax:
+	$printf [-v var] format [arguments]
+
+	Note: printf can have format specifiers, escape sequences or ordinary characters.
+
+	Format Specifiers: The most commonly used printf specifiers are %s, %b, %d, %x and %f.
+
+	Examples:
+
+    		%s specifier: It is basically a string specifier for string output.
+
+    			$printf "%s\n" "Hello, World!"
+	%b specifier: It is same as string specifier but it allows us to interpret escape sequences with an argument.
+
+	Input:  printf "%s\n" "Hello, World! \n" "From Geeks For Geeks\n"
+
+	Output: Hello, World! \n
+        	From Geeks For Geeks\n
+	
+	Note: The escape sequence “\n” in the above lines has no special meaning when used with “%s” specifier and is treated just like other characters. If we replace “%s” with “%b“, Then it will be 	interpreted as a newline character.
+
+	Input :  printf "%b\n" "Hello, World! \n" "From Geeks For Geeks\n"
+	Output:  Hello, World! 
+
+         	 From Geeks For Geeks 
+	
+	%d specifier: It is an integer specifier for showing the integral values.
+		$printf "%d\n" "213" "109"
+
+	%f specifier: It is used for output of floating point values.
+		$printf "%f\n" "1.32" "3.14"
+
+# bc command is used for command line calculator. 
+	It is similar to basic calculator by using which we can do basic mathematical calculations. 
+
+	The bc command supports the following features: 
+    		Arithmetic operators
+    		Increment or Decrement operators
+   	 	Assignment operators
+    		Comparison or Relational operators
+    		Logical or Boolean operators
+    		Math functions
+    		Conditional statements
+    		Iterative statements 
+	
+	1. Arithmetic Operators 
+
+	Examples:  
+		Input : $ echo "12+5" | bc
+		Output : 17
+
+		Input : $ echo "10^2" | bc
+		Output : 100
+
+	How to store the result of complete operation in variable? 
+	Example:  
+
+	Input:
+		$ x=`echo "12+5" | bc`
+		$ echo $x
+
+	Output:17
+
+	2. Assignment Operators 
+	The list of assignments operators supported are: 
+	    var = value : Assign the value to the variable
+	    var += value : similar to var = var + value
+	    var -= value : similar to var = var – value
+	    var *= value : similar to var = var * value
+	    var /= value : similar to var = var / value
+	    var ^= value : similar to var = var ^ value
+	    var %= value : similar to var = var % value
+	
+	Examples:
+		Input: $ echo "var=10;var" | bc
+		Output: 10
+
+		Explanation: Assign 10 to the variable and print the value on the terminal.  
+
+		Input: $ echo "var=10;var^=2;var" | bc
+		Output: 100
+
+	How to store the result of complete operation in variable? 
+	Example: 
+		Input:
+		$ x=`echo "var=500;var%=7;var" | bc`
+		$ echo $x 
+
+		Output:3
+
+	3. Increment Operators 
+		There are 2 kinds of increment operators:  
+
+		    ++var : Pre increment operator, variable is increased first and then result of variable is stored.
+		    var++ : Post increment operator, result of the variable is used first and then variable is incremented.
+
+	Examples:
+		Input: $ echo "var=10;++var" | bc
+		Output: 11
+
+		Explanation: Variable is increased first and then result of variable is stored.  
+
+		Input: $ echo "var=10;var++" | bc
+		Output: 10
+
+		Explanation: Result of the variable is used first and then variable is incremented. 
+
+	4. Decrement Operators 
+		There are 2 kinds of decrement operators:
+		    – – var : Pre decrement operator, variable is decreased first and then result of variable is stored.
+		    var – – : Post decrement operator, result of the variable is used first and then variable is decremented.
+
+	Examples:  
+
+		Input: $ echo "var=10;--var" | bc
+		Output: 9
+
+		Explanation: Variable is decreased first and then result of variable is stored.  
+
+		Input: $ echo "var=10;var--" | bc
+		Output: 10
+
+		Explanation: Result of the variable is used first and then variable is decremented. 
+	
+	5. Comparison or Relational Operators 
+		Relational operators are used to compare 2 numbers. 
+		If the comparison is true, then result is 1. Otherwise(false), returns 0. These operators are generally used in conditional statements like if. 
+
+		The list of relational operators supported in bc command are shown below: 
+		    expr1<expr2 : Result is 1 if expr1 is strictly less than expr2.
+		    expr1<=expr2 : Result is 1 if expr1 is less than or equal to expr2.
+		    expr1>expr2 : Result is 1 if expr1 is strictly greater than expr2.
+		    expr1>=expr2 : Result is 1 if expr1 is greater than or equal to expr2.
+		    expr1==expr2 : Result is 1 if expr1 is equal to expr2.
+		    expr1!=expr2 : Result is 1 if expr1 is not equal to expr2.
+
+	Examples:  
+		Input: $ echo "10>5" | bc
+		Output: 1
+
+		Input: $ echo "1==2" | bc
+		Output: 0
+
+	6. Logical or Boolean Operators 
+		Logical operators are mostly used in conditional statements. The result of the logical operators is either 1(TRUE) or 0(FALSE).  
+		    expr1 && expr2 : Result is 1 if both expressions are non-zero.
+		    expr1 || expr2 : Result is 1 if either expression is non-zero.
+		    ! expr : Result is 1 if expr is 0.
+
+	Examples:  
+
+		Input: $ echo "10 && 5" | bc
+		Output: 1
+
+		Input: $ echo "0 || 0" | bc
+		Output: 0
+
+		Input: $ echo "! 0" | bc
+		Output: 1
+
+Important Points:  
+    Bc command treats the semicolon (;) or newline as the statement separator.
+    To group statements use the curly braces. Use with functions, if statement, for and while loops.
+    If only an expression is specified as a statement, then bc command evaluates the expression and prints the result on the standard output.
+    If an assignment operator is found. Bc command assigns the value to the variable and do not print the value on the terminal.
+    A function should be defined before calling it. Always the function definition should appear first before the calling statements.
+    If a standalone variable is found as a statement, bc command prints the value of the variable. You can also Use the print statement for displaying the list of values on the terminal. 
+
+# passwd command in Linux is used to change the user account passwords. 
+	The root user reserves the privilege to change the password for any user on the system, while a normal user can only change the account password for his or her own account.
+
+	Syntax:
+
+	 	passwd [options] [username] 
+
+	Example:
+
+		Command: passwd 
+
+	Processing in passwd command:
+
+    		Verify current user password : Once the user enters passwd command, it prompts for current user password, which is verified against the password stored in /etc/shadow file user. The root 			user can bypass this step and can directly change the password, so as the forgotten passwords may be recovered.
+    		Verify password aging information : In Linux, a user password can be set to expire after a given period of time. Also, a user can be prohibited to change his/her password for a period. 			This password aging information (and the password itself) is stored in a file /etc/shadow.
+    		Change the password : After authentication, the user is prompted to enter the new password and verify it by retyping the password.
+
+# Linux operating system represents everything in a file system, the hardware devices that we attach are also represented as a file. The terminal is also represented as a file. 
+	There a command exists called tty which displays information related to terminal. The tty command of terminal basically prints the file name of the terminal connected to standard input. 
+	tty is short of teletype, but popularly known as a terminal it allows you to interact with the system by passing on the data (you input) to the system, and displaying the output produced by the 		system.
+
+	Syntax:
+		tty [OPTION]....
